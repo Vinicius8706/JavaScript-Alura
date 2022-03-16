@@ -1,19 +1,17 @@
 import {ContaCorrente} from "./ContaCorrente.js";
 import {Cliente} from "./Cliente.js"; // precisa colocar o module no package.json
 
-const cliente1 = new Cliente();
-cliente1.nome = "Ricardo";
-cliente1.cpf = 11122233309;
+const cliente1 = new Cliente('Ricardo',11122233309);
+const cliente2 = new Cliente("Alice",88822233309);
 
-const cliente2 = new Cliente();
-cliente2.nome = "Vinicius";
-cliente2.cpf = 22233344408;
+const contaCorrenteRicardo = new ContaCorrente(1001,cliente1);
+contaCorrenteRicardo.depositar(500)
+const conta2 = new ContaCorrente(102,cliente2)
 
-const contaCorrenteRicardo = new ContaCorrente();
-contaCorrenteRicardo.agencia = 1001
 
-contaCorrenteRicardo.depositar(100);
-contaCorrenteRicardo.depositar(200);
-contaCorrenteRicardo.depositar(-1);
-contaCorrenteRicardo.sacar(50)
-console.log(contaCorrenteRicardo);
+let valor = 200;
+contaCorrenteRicardo.transferir(valor,conta2)
+console.log(cliente2);
+
+console.log(ContaCorrente.numeroDeContas)
+
