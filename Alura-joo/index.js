@@ -1,25 +1,5 @@
-class Cliente {
-    nome;
-    cpf;
-}
-class ContaCorrente {
-    agencia;
-    _saldo = 0;
-
-    sacar(valor) {
-        if (this._saldo >= valor) {
-            this._saldo -= valor; //consegue encapsular dentro de um metodo
-
-        }
-    }
-
-    depositar(valor) {
-        if (valor > 0) {
-            this._saldo += valor;
-        }
-
-    }
-}
+import {ContaCorrente} from "./ContaCorrente.js";
+import {Cliente} from "./Cliente.js"; // precisa colocar o module no package.json
 
 const cliente1 = new Cliente();
 cliente1.nome = "Ricardo";
