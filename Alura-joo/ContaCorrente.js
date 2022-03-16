@@ -2,8 +2,7 @@ import {Cliente} from "./Cliente.js"
 
 export class ContaCorrente {
     static numeroDeContas=0;
-  agencia;
-  _cliente;
+  
 
   set cliente(novoValor){
       if(novoValor instanceof Cliente){
@@ -16,13 +15,13 @@ export class ContaCorrente {
       return this._cliente;
   }
 
-  _saldo = 0;
   get saldo(){
       return this._saldo;
   }
     constructor(agencia,cliente){
         this.agencia= agencia;
         this.cliente= cliente;
+        this._saldo = 0;
         ContaCorrente.numeroDeContas +=1; //atributo estatico da classe para ser acessado(em vez de acessar a classe especifica)
     }
   sacar(valor) {
@@ -33,7 +32,7 @@ export class ContaCorrente {
   }
 
   depositar(valor) {
-      if (valor <= 0) {
+      if (valor <= 100) {
       return;
       }
       
