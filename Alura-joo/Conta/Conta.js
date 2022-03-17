@@ -4,7 +4,7 @@ export class Conta {
     this._cliente = cliente
     this._agencia = agencia
     if (this.constructor == Conta) {
-      console.log("Você não deveria entrar nas instancias desse objeto")
+      throw new Error("Você não deveria entrar nas instancias desse objeto, pois ela é uma classe abstrata")
     }
   }
 
@@ -24,9 +24,9 @@ export class Conta {
     return this._saldo;
   }
 
-  sacar(valor) {
-    let taxa = 1;
-    this._sacar(valor, taxa)
+  // Método abstrato
+  sacar(valor) { // protege o sistema
+    throw new Error("O método sacar da conta é abstrato.")
   }
 
 
