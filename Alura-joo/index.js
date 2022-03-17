@@ -1,18 +1,16 @@
-import {ContaCorrente} from "./Conta/ContaCorrente.js";
 import {Cliente} from "./Cliente.js"; // precisa colocar o module no package.json
-import {ContaPoupanca} from "./Conta/ContaPoupanca.js"; // precisa colocar o module no package.json
+import { Gerente } from "/inetpub/wwwroot/javascript/javascript-alura/alura-joo/funcionarios/gerente.js";
+import { Diretor } from "/inetpub/wwwroot/javascript/javascript-alura/alura-joo/funcionarios/Diretor.js";
+import {SistemaAutentificacao} from "../SistemaAutentificacao.js";
 
-import { ContaSalario } from "./Conta/contasalario.js";
+const diretor = new Diretor("Rodrigo",10000,12345678900);
+const gerente = new Gerente("Marcelo",5000,123456789012)
+const cliente = new Cliente("lais",7823123123, "456")
 
-const cliente1 = new Cliente('Ricardo',11122233309);
-const cliente2 = new Cliente("Alice",88822233309);
+gerente.cadastrarSenha("123")
+diretor.cadastrarSenha("123456")
 
-const contaCorrenteRicardo = new ContaCorrente(cliente1,1001);
-const contaPoupanca = new ContaPoupanca( 50,cliente1,1001);
-const contaSalario = new ContaSalario(cliente1)
-contaSalario.depositar(100)
-contaSalario.sacar(10)
-console.log(contaCorrenteRicardo)
-
-console.log(contaPoupanca)
-
+const diretorEstaLogado = SistemaAutentificacao.login(diretor,"123456")
+const gerenteEstaLogado = SistemaAutentificacao.login(gerente,"123")
+const clienteEstaLogado = SistemaAutentificacao.login(cliente,"123")
+console.log(gerenteEstaLogado,diretorEstaLogado,clienteEstaLogado)
